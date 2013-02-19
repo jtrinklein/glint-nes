@@ -5,12 +5,12 @@ else
 fi
 
 # Update root user's profile, Raspberry Pi config file, and auto-login inittab
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/.profile > ~/.profile
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/raspberry-pi-config.txt > /tmp/config.txt
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/.profile > ~/.profile
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/raspberry-pi-config.txt > /tmp/config.txt
 mv /boot/config.txt /boot/config.txt.backup
 mv /tmp/config.txt /boot/config.txt
 
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/scripts/inittab > /tmp/inittab
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/scripts/inittab > /tmp/inittab
 mv /etc/inittab /etc/inittab.backup
 mv /tmp/inittab /etc/inittab
 
@@ -32,26 +32,26 @@ apt-get -y install libretro-fceu retroarch
 # glint-es dependencies
 apt-get -y install build-essential libsdl1.2-dev libboost-filesystem-dev libfreeimage-dev libfreetype6-dev libsdl-mixer1.2-dev
 mkdir -p /root/glint-es
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/bin/glint-es > /root/glint-es/glint-es
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/bin/glint-es > /root/glint-es/glint-es
 
 cd ~
 mkdir -p .emulationstation
 mkdir -p ~/roms/
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/es_systems.cfg > /root/.emulationstation/es_systems.cfg
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/es_input.cfg > /root/.emulationstation/es_input.cfg
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/es_theme.xml > /root/.emulationstation/es_theme.xml
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/es_systems.cfg > /root/.emulationstation/es_systems.cfg
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/es_input.cfg > /root/.emulationstation/es_input.cfg
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/es_theme.xml > /root/.emulationstation/es_theme.xml
 
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/media/glint-font.ttf > /usr/share/fonts/truetype/glint-font.ttf
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/media/glint-nes-bg.png > /root/.emulationstation/glint-nes-bg.png
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/media/glint-nes-fsbox-bg.png > /root/.emulationstation/glint-nes-fsbox-bg.png
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/media/glint-font.ttf > /usr/share/fonts/truetype/glint-font.ttf
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/media/glint-nes-bg.png > /root/.emulationstation/glint-nes-bg.png
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/media/glint-nes-fsbox-bg.png > /root/.emulationstation/glint-nes-fsbox-bg.png
 
 # Custom splash screen stuff - disabled for now because it's unstable
 # From: http://raspberrypi.stackexchange.com/questions/1214/how-to-add-custom-loading-screen
 # apt-get -y install fbi
-# curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/glint-nes-splash.png > /tmp/splash.png
+# curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/glint-nes-splash.png > /tmp/splash.png
 # mv /tmp/splash.png > /etc/splash.png
 # 
-# curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/scripts/glint-splash > /tmp/glint-splash
+# curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/scripts/glint-splash > /tmp/glint-splash
 # mv /tmp/glint-splash /etc/init.d/aaasplash
 # 
 # chmod a+x /etc/init.d/aaasplash
@@ -60,10 +60,10 @@ curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/media/glint
 # Create config file for running RetroArch
 mkdir -p ~/.config/retroarch/
 cd ~/.config/retroarch/
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/retroarch.cfg > retroarch.cfg
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/retroarch.cfg > retroarch.cfg
 
 # Setup audio module
-curl -L https://raw.github.com/jtrinklein/glint-nes/$GLINTBRANCHNAME/config/modules > /etc/modules
+curl -L https://raw.github.com/jtrinklein/glint-fork/$GLINTBRANCHNAME/config/modules > /etc/modules
 
 # Set 192/64 memory split
 cp /boot/arm192_start.elf /boot/start.elf
