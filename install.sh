@@ -1,6 +1,6 @@
 #!/bin/bash
 if [-z "$GLINTBRANCHNAME"]
-else
+then
   export GLINTBRANCHNAME=raspi
 fi
 
